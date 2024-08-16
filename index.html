@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- This page has unprotected GPL Law! -->
 
 <head>
     <meta charset="UTF-8">
@@ -17,122 +18,117 @@
     <meta name="twitter:description" content="Vulpes offers enhanced Discord-Wide commands for a better experience.">
     <meta name="twitter:image" content="https://i.ibb.co/YfwHQH3/vas-1.png">
     <title>Vulpes - Better Discord-Wide Commands</title>
-    <link rel="icon" type="image/png" href="assets/vulpes.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://anoxle.github.io/vulpes/assets/vulpes.png" type="image/png">
 </head>
-
 <body>
-    <div>
-        <h1>Vulpes</h1>
-        <h2>• <span id="dynamic-text">Better</span> Discord-Wide Commands •</h2>
-        <a href="https://anoxle.github.io/vulpes/install" class="button">Authorize Vulpes</a>
+    <div class="container">
+        <div class="logo">
+            <img src="https://anoxle.github.io/vulpes/assets/vulpes.png" alt="Vulpes logo">
+        </div>
+        <h1>vulpes</h1>
+        <p>• Better Discord-Wide Commands •</p>
+        <a href="https://anoxle.github.io/vulpes/install" class="install-btn">Install</a>
     </div>
-    <script>
-        const texts = ["Powerful", "Fun", "Helpful", "Cute", "Better"];
-        let index = 0;
-        const element = document.getElementById("dynamic-text");
-        const typingSpeed = 100, deletingSpeed = 100, pauseBetween = 888;
-
-        function typeText(text, callback) {
-            let i = 0;
-            const interval = setInterval(() => {
-                element.textContent = text.substring(0, i + 1);
-                i++;
-                if (i === text.length) {
-                    clearInterval(interval);
-                    setTimeout(callback, pauseBetween);
-                }
-            }, typingSpeed);
-        }
-
-        function deleteText(callback) {
-            let i = element.textContent.length;
-            const interval = setInterval(() => {
-                element.textContent = element.textContent.substring(0, i - 1);
-                i--;
-                if (i === 0) {
-                    clearInterval(interval);
-                    setTimeout(callback, pauseBetween);
-                }
-            }, deletingSpeed);
-        }
-
-        function startAnimation() {
-            deleteText(() => {
-                typeText(texts[index], () => {
-                    index = (index + 1) % texts.length;
-                    startAnimation();
-                });
-            });
-        }
-
-        startAnimation();
-    </script>
+    <div class="copyright">
+        ©️ Unprotected GPL. anoxle.git licence
+    </div>
 
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #36393f; 
+            background-color: #2C2F33;
+            color: white;
+            font-family: 'Poppins', sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
-            color: #fff;
-            font-family: "Arial", sans-serif;
-            overflow: hidden;
-        }
-        h1, h2 {
+            margin: 0;
             opacity: 0;
-            animation: fadeInUp 1s forwards;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            background-color: #696969;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 0.5s ease-out 0.5s forwards;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         h1 {
-            color: #7289da; 
-            margin: 0;
-            font-size: 4rem;
-            text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+            font-size: 48px;
+            margin: 0 0 10px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.5s ease-out 0.7s forwards;
         }
-        h2 {
-            color: #b9bbbe; 
-            margin: 20px 0;
-            font-size: 1.5rem;
+        p {
+            font-size: 20px;
+            margin: 0 0 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.5s ease-out 0.9s forwards;
         }
-        .button {
-            background: #7289da; 
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            font-size: 1.5rem;
+        .install-btn {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s;
-            opacity: 0;
-            animation: fadeInUp 1s 0.5s forwards;
+            font-weight: 600;
             text-decoration: none;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.5s ease-out 1.1s forwards;
         }
-        .button:hover {
-            background: #5b6eae; 
-            transform: scale(1.05);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        .install-btn:hover {
+            background-color: white;
+            color: #2C2F33;
         }
-        .button:active {
-            transform: scale(0.98);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        .copyright {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.7;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            to { 
+                opacity: 1;
+                transform: scale(1);
             }
+        }
+        @keyframes slideUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
     </style>
-
 
 </body>
 </html>
