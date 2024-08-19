@@ -16,13 +16,15 @@
             }, 50);
         }
 
+		// GTM-0ZiEZ5bU
         function hideOverlay() {
             const overlayContent = document.querySelector('.overlay-content');
             overlayContent.style.opacity = '0';
             overlayContent.style.transform = 'translateY(-20px)';
             setTimeout(() => {
                 document.getElementById('overlay').style.display = 'none';
-                redirectToDiscord();
+                document.querySelector('.loading-dots').style.display = 'flex';
+                setTimeout(redirectToDiscord, 2000);
             }, 500);
         }
 
@@ -37,7 +39,7 @@
         }
 
         function retry() {
-            window.location.href = "https://discord.com/oauth2/authorize?client_id=1207724790635561001";
+            window.location.href = "https://discord.com/invite/PWnzAFNuKe";
         }
 
         window.onload = showOverlay;
