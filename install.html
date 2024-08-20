@@ -29,7 +29,7 @@
         }
 
         function redirectToDiscord() {
-            const url = "https://discord.com/invite/PWnzAFNuKe";
+            const url = "https://discord.com/oauth2/authorize?client_id=1207724790635561001";
             window.location.href = url;
             setTimeout(() => {
                 const message = document.createElement('div');
@@ -39,7 +39,7 @@
         }
 
         function retry() {
-            window.location.href = "https://discord.com/invite/PWnzAFNuKe";
+            window.location.href = "https://discord.com/oauth2/authorize?client_id=1207724790635561001";
         }
 
         window.onload = showOverlay;
