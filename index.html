@@ -24,12 +24,12 @@
     <link href="assets/vulpes.png" ref="icon" type="image/x-icon">
 </head>
 
-    <script>
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-            window.location.href = "https://anoxle.github.io/vulpes/types/OE2kieYesFc0KzKqvganFiffe.html";
-        }
-    </script>
-    
+<script>
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        window.location.href = "https://anoxle.github.io/vulpes/types/OE2kieYesFc0KzKqvganFiffe.html";
+    }
+</script>
+
 <body>
     <div class="container">
         <div class="logo">
@@ -42,6 +42,27 @@
         <div class="servers-section">
             <h2>Vulpes is in</h2>
             <div class="server-list" id="server-list"></div>
+        </div>
+
+        <div class="featured-commands">
+            <h2>Featured Commands</h2>
+            <div class="command-list">
+                <div class="command-box">
+                    <img src="https://anoxle.github.io/vulpes/assets/shazam.png" alt="Shazam icon" class="command-icon">
+                    <h3>Shazam</h3>
+                    <p>Find Songs with audio files! (EASY)</p>
+                </div>
+                <div class="command-box">
+                    <img src="https://anoxle.github.io/vulpes/assets/install.png" alt="Install icon" class="command-icon">
+                    <h3>Install</h3>
+                    <p>Install vulpes to your account!</p>
+                </div>
+                <div class="command-box">
+                    <img src="https://anoxle.github.io/vulpes/assets/18plus.png" alt="18+ icon" class="command-icon">
+                    <h3>r34</h3>
+                    <p>GET Rule34 images/videos [CUSTOM]</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="copyright">
@@ -231,6 +252,45 @@
             font-size: 14px;
             opacity: 0.7;
             transition: all 0.3s ease;
+        }
+        .featured-commands {
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards;
+        }
+        .command-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .command-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .command-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .command-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .command-box h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #2C2F33;
+        }
+        .command-box p {
+            font-size: 14px;
+            color: #4F5660;
+            margin: 0;
         }
         @keyframes fadeIn {
             to { opacity: 1; }
