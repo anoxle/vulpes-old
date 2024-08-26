@@ -10,14 +10,33 @@
     <meta name="keywords" content="discord, vulpes, better, commands, bot, enhancement, discord-wide, vulpes bot, vulpes discord bot, vulpes bot install, anoxle, anoxle git, xvar, xvarbots, discord community, discord servers, free to use bot, easy to use bot">
     <meta name="robots" content="index, follow">
     <meta name="author" content="anoxle.git">
-    <meta property="og:title" content="Vulpes Discord Bot - Enhance Your Discord Experience">
-    <meta property="og:description" content="Vulpes offers enhanced Discord-wide commands for a better experience.">
-    <meta property="og:image" content="https://i.ibb.co/LRJHBmD/vulpesban.png">
+    <!-- General Meta Tags -->
+    <meta name="description" content="Enhance your Discord Commands today! (FREE)">
+    <meta name="keywords" content="discord, vulpes, better, commands, bot, enhancement, discord-wide, vulpes bot, vulpes discord bot, vulpes bot install, anoxle, anoxle git, xvar, xvarbots, discord community, discord servers, free to use bot, easy to use bot">
+    <meta name="author" content="anoxle.git">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://anoxle.github.io/vulpes/">
+    <meta property="og:title" content="Vulpes Discord Bot">
+    <meta property="og:description" content="Enhance your Discord Commands today! (FREE)">
+    <meta property="og:image" content="https://anoxle.github.io/vulpes/assets/vulpes.png">
+    
+    <!-- X(Formly Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vulpes Discord Bot - Enhance Your Discord Experience">
-    <meta name="twitter:description" content="Vulpes offers enhanced Discord-wide commands for a better experience.">
-    <meta name="twitter:image" content="https://i.ibb.co/LRJHBmD/vulpesban.png">
+    <meta name="twitter:url" content="https://anoxle.github.io/vulpes/">
+    <meta name="twitter:title" content="Vulpes Discord Bot">
+    <meta name="twitter:description" content="Enhance your Discord Commands today! (FREE)">
+    <meta name="twitter:image" content="https://anoxle.github.io/vulpes/assets/vulpes.png">
+    
+    <!-- Discord Specific Meta Tags -->
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="discord:author:name" content="Powered by anoxle.git">
+    <meta name="discord:author:icon" content="https://anoxle.github.io/vulpes/assets/vulpes.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="assets/vulpes.png" rel="shortcut icon" type="image/x-icon"/>
+    <link href="assets/vulpes.png" rel="icon" type="image/x-icon">
     <title>Vulpes - Better Discord-Wide Commands</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="assets/vulpes.png" rel="shortcut icon" type="image/x-icon"/>
@@ -58,10 +77,11 @@
             </div>
         </div>
     </div>
-    <div class="copyright">
-        ©️ Protected FLF anoxle.git licence
-    </div>
-
+    <footer>
+        <p class="copyright">©️ Protected FLF anoxle.git licence</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
         async function fetchServerData() {
             const response = await fetch('https://gist.githubusercontent.com/anoxle/2094ae17e1e4e3f046a0930618539bac/raw/');
@@ -73,7 +93,6 @@
             servers.forEach((server, index) => {
                 const serverDiv = document.createElement('div');
                 serverDiv.className = 'server';
-                serverDiv.style.animationDelay = `${index * 0.2}s`;
                 
                 const serverIcon = document.createElement('img');
                 serverIcon.src = server.icon_url;
@@ -95,35 +114,101 @@
                 serverDiv.appendChild(serverInfo);
                 serverList.appendChild(serverDiv);
 
+                gsap.set(serverDiv, { opacity: 0, y: 50 });
+                gsap.to(serverDiv, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "power2.out"
+                });
+
+                // Removed looping animation for server list
+
                 serverDiv.addEventListener('mouseenter', () => {
-                    serverDiv.style.transform = 'scale(1.05) rotateY(5deg)';
-                    serverDiv.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
-                    serverIcon.style.transform = 'rotate(360deg) scale(1.1)';
-                    serverName.style.color = '#7289DA';
+                    gsap.to(serverDiv, { scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.2)', duration: 0.3 });
+                    gsap.to(serverIcon, { rotation: 360, duration: 0.5 });
+                    gsap.to(serverName, { color: '#7289DA', duration: 0.3 });
                 });
 
                 serverDiv.addEventListener('mouseleave', () => {
-                    serverDiv.style.transform = 'scale(1) rotateY(0)';
-                    serverDiv.style.boxShadow = 'none';
-                    serverIcon.style.transform = 'rotate(0) scale(1)';
-                    serverName.style.color = '#2C2F33';
+                    gsap.to(serverDiv, { scale: 1, boxShadow: '0 4px 6px rgba(0,0,0,0.1)', duration: 0.3 });
+                    gsap.to(serverIcon, { rotation: 0, duration: 0.5 });
+                    gsap.to(serverName, { color: '#2C2F33', duration: 0.3 });
                 });
-
-                setTimeout(() => {
-                    serverDiv.style.opacity = '1';
-                    serverDiv.style.transform = 'translateY(0) rotateX(0)';
-                }, index * 200);
-
-                serverDiv.style.animation = `floatAnimation 3s ease-in-out ${index * 0.5}s infinite`;
             });
         }
 
-        document.addEventListener('DOMContentLoaded', fetchServerData);
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.from('body', { opacity: 0, duration: 1, ease: 'power2.out' });
+            
+            gsap.from('.logo', { 
+                opacity: 0, 
+                scale: 0.5, 
+                duration: 1, 
+                ease: 'elastic.out(1, 0.5)',
+                delay: 0.2
+            });
+            
+            gsap.from('h1', { 
+                opacity: 0, 
+                y: -50, 
+                duration: 0.8, 
+                ease: 'back.out(1.7)',
+                delay: 0.5
+            });
+            
+            gsap.from('p', { 
+                opacity: 0, 
+                y: 50, 
+                duration: 0.8, 
+                ease: 'back.out(1.7)',
+                delay: 0.7
+            });
+            
+            // New animation for install button
+            const installBtn = document.querySelector('.install-btn');
+            gsap.from(installBtn, { 
+                opacity: 0, 
+                scale: 0.8, 
+                duration: 0.8, 
+                ease: 'elastic.out(1, 0.5)',
+                delay: 0.9
+            });
+            
+            // Hover animation for install button
+            installBtn.addEventListener('mouseenter', () => {
+                gsap.to(installBtn, { scale: 1.1, duration: 0.3 });
+            });
+            installBtn.addEventListener('mouseleave', () => {
+                gsap.to(installBtn, { scale: 1, duration: 0.3 });
+            });
+
+            gsap.from('.servers-section, .featured-commands', {
+                opacity: 0,
+                y: 100,
+                duration: 1,
+                ease: 'power3.out',
+                delay: 1.1,
+                stagger: 0.2
+            });
+
+            gsap.from('.command-box', {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                delay: 1.3,
+                stagger: 0.1
+            });
+
+            fetchServerData();
+        });
     </script>
     
     <style>
         body {
-            background-color: white;
+            background-color: #f7f7f7;
             color: #2C2F33;
             font-family: 'Poppins', sans-serif;
             display: flex;
@@ -131,12 +216,12 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
         }
         .container {
             text-align: center;
             padding: 20px;
+            max-width: 1200px;
+            width: 100%;
         }
         .logo {
             background-color: #696969;
@@ -148,9 +233,7 @@
             align-items: center;
             margin: 0 auto 15px;
             overflow: hidden;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: scaleIn 0.5s ease-out 0.5s forwards;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .logo img {
             width: 100%;
@@ -161,36 +244,29 @@
             font-size: 48px;
             margin: 0 0 10px;
             font-weight: 600;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.5s ease-out 0.7s forwards;
         }
         p {
             font-size: 20px;
             margin: 0 0 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.5s ease-out 0.9s forwards;
         }
         .install-btn {
-            background-color: transparent;
-            border: 2px solid #2C2F33;
-            color: #2C2F33;
-            padding: 10px 25px;
-            border-radius: 25px;
+            background-color: #7289DA;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.5s ease-out 1.1s forwards;
+            border: none;
+            box-shadow: 0 4px 6px rgba(114,137,218,0.3);
         }
         .install-btn:hover {
-            background-color: #2C2F33;
-            color: white;
+            background-color: #5b6eae;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(114,137,218,0.4);
         }
         .copyright {
             position: absolute;
@@ -201,36 +277,30 @@
             font-size: 12px;
             opacity: 0.7;
         }
-        .servers-section {
+        .servers-section, .featured-commands {
             margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1.3s forwards;
         }
         .server-list {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            perspective: 1000px;
         }
         .server {
-            background-color: #f0f0f0; 
+            background-color: white;
             border-radius: 10px;
             padding: 15px;
             display: flex;
             align-items: center;
             width: 250px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            opacity: 0;
-            transform: translateY(50px) rotateX(-10deg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         .server-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 15px;
-            transition: all 0.3s ease;
         }
         .server-info {
             text-align: left;
@@ -238,18 +308,11 @@
         .server-info h3 {
             margin: 0;
             font-size: 18px;
-            transition: all 0.3s ease;
         }
         .server-info p {
             margin: 5px 0 0;
             font-size: 14px;
             opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-        .featured-commands {
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1.5s forwards;
         }
         .command-list {
             display: flex;
@@ -263,53 +326,54 @@
             border-radius: 10px;
             padding: 20px;
             width: 200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
         .command-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         .command-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .command-box:hover .command-icon {
+            transform: rotate(360deg);
         }
         .command-box h3 {
             margin: 10px 0;
             font-size: 18px;
             color: #2C2F33;
+            transition: color 0.3s ease;
+        }
+        .command-box:hover h3 {
+            color: #7289DA;
         }
         .command-box p {
             font-size: 14px;
             color: #4F5660;
             margin: 0;
         }
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .install-btn {
+            background-color: #7289DA;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            box-shadow: 0 4px 6px rgba(114,137,218,0.3);
         }
-        @keyframes scaleIn {
-            to { 
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes floatAnimation {
-            0% {
-                transform: translateY(0) rotateX(0);
-            }
-            50% {
-                transform: translateY(-10px) rotateX(5deg);
-            }
-            100% {
-                transform: translateY(0) rotateX(0);
-            }
+        .install-btn:hover {
+            background-color: #5b6eae;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(114,137,218,0.4);
         }
     </style>
     
