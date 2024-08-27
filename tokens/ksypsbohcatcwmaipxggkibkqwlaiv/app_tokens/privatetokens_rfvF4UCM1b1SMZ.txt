@@ -1,2 +1,4 @@
+"Secret protected by https://www.base64encode.org" - 
+
 vulpes_token = "TnpJMU1qQTNNelkwTlRZM09EUTROekV5LkdWM0Z0WC5DOVlRb1Q0Slo4ZlgxQTVjdjhLeFY3eEc3aDVUajFXekZnWnNtOA=="
 vulpes_selfbot_token_at@4 = "ODQ2NzQ1MjEyMjM0NTY3NjMx.YKt4tA.pQyZvN4xO1mC3H8jw7j6NxI2mD0Vr5FpKQyTsk"
