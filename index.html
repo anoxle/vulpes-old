@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="https://anoxle.github.io/vulpes/assets/300vulpes.png">
 </head>
+
 <body>
     <div class="container">
         <div class="trusted-users">
@@ -31,7 +32,7 @@
         </div>
         <h1>Vulpes</h1>
         <p>• Better Discord-Wide Commands •</p>
-        <a href="https://anoxle.github.io/vulpes/install" class="install-btn">Install</a>
+        <a href="#" class="install-btn" onclick="openInstallPopup()">Install</a>
         
         <div class="servers-section">
             <h2>Vulpes is in</h2>
@@ -44,17 +45,17 @@
                 <div class="command-box">
                     <img src="https://anoxle.github.io/vulpes/assets/shazam.png" alt="Shazam icon" class="command-icon">
                     <h3>Shazam</h3>
-                    <p>Find Songs with audio files! (EASY)</p>
+                    <p>Easy Music Discovery, Charts.</p>
                 </div>
                 <div class="command-box">
                     <img src="https://anoxle.github.io/vulpes/assets/install.png" alt="Install icon" class="command-icon">
                     <h3>Install</h3>
-                    <p>Install Vulpes to your account!</p>
+                    <p>Install Vulpes to your account</p>
                 </div>
                 <div class="command-box">
                     <img src="https://anoxle.github.io/vulpes/assets/18plus.png" alt="18+ icon" class="command-icon">
                     <h3>r34</h3>
-                    <p>GET Rule34 images/videos [CUSTOM]</p>
+                    <p>Get r34 content [Video/Images]</p>
                 </div>
             </div>
         </div>
@@ -62,6 +63,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
+        function openInstallPopup() {
+            window.open('https://discord.com/oauth2/authorize?client_id=1207724790635561001', 'Install Vulpes', 'width=600,height=800');
+        }
+
         async function fetchServerData() {
             const response = await fetch('https://gist.githubusercontent.com/anoxle/2094ae17e1e4e3f046a0930618539bac/raw/');
             const servers = await response.json();
@@ -347,12 +352,6 @@
          "author": {
            "@type": "Organization",
            "name": "anoxle.git"
-         },
-         "aggregateRating": {
-           "@type": "AggregateRating",
-           "ratingValue": "4.5",
-           "bestRating": "5",
-           "ratingCount": "100"
          }
        }
     </script>
