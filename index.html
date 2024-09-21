@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +24,10 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="warning-message">
+            Bot is down! We're applying for intents and it might take weeks. (Contact '.conel.' to help us)
+        </div>
     <div class="container">
         <div class="trusted-users">
             <p>Trusted by over 100 users!</p>
@@ -174,6 +179,13 @@
                 stagger: 0.1
             });
             fetchServerData();
+            gsap.from('.warning-message', { 
+                opacity: 0, 
+                y: -50, 
+                duration: 0.8, 
+                ease: 'power2.out',
+                delay: 0.2
+            });
         });
     </script>
     
@@ -331,6 +343,17 @@
             font-size: 14px;
             color: #4F5660;
             margin: 0;
+        }
+        .warning-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
     </style>
     <script type="application/ld+json">
