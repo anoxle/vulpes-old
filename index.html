@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulpes - Better Discord Commands [Official Page]</title>
-    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="icon" type="image/x-icon"/>
-    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="icon" type="image/x-icon" />
+    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="shortcut icon" type="image/x-icon" />
     <meta name="description" content="Vulpes gives you better Discord commands!">
     <meta name="keywords" content="discord, vulpes, bot, enhancement, commands, community, free bot, easy to use, Vulpes Discord bot, install Vulpes bot, custom Discord commands, official vulpes bot, enhanced Discord commands, user-installable Discord bot, Discord bot commands, Discord automation tools, Vulpes bot features, how to install Vulpes bot, improve Discord server, Discord server commands, Discord Vulpes installation, best Discord bots, Discord bot for commands, Discord command bot, add commands to Discord, Discord bot customization, Discord user commands bot, manage Discord server bot, Vulpes command guide, automate Discord tasks, Discord bot setup Vulpes, easy install Discord bot, Vulpes bot tutorial, Discord bot command list, Discord productivity bot, Discord enhancement bot, Vulpes bot commands, Vulpes for Discord">
     <meta name="author" content="anoxle.git">
@@ -33,7 +33,7 @@
         <h1>Vulpes</h1>
         <p>• Better Discord-Wide Commands •</p>
         <a href="#" class="install-btn" onclick="openInstallPopup()">Install</a>
-        
+
         <div class="servers-section">
             <h2>Vulpes is in</h2>
             <div class="server-list" id="server-list"></div>
@@ -60,7 +60,11 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="footer">
+        <e style="color: grey; text-align: center;">By using Vulpes you agree to the <a href="https://anoxle.github.io/xvar/terms" style="text-decoration: underline; color: grey;">Terms</a> & <a href="https://anoxle.github.io/xvar/privacy" style="text-decoration: underline; color: grey;">Privacy</a></e>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
         function openInstallPopup() {
@@ -71,12 +75,12 @@
             const response = await fetch('https://gist.githubusercontent.com/anoxle/2094ae17e1e4e3f046a0930618539bac/raw/');
             const servers = await response.json();
             const serverList = document.getElementById('server-list');
-            serverList.innerHTML = ''; 
+            serverList.innerHTML = '';
 
             servers.forEach((server, index) => {
                 const serverDiv = document.createElement('div');
                 serverDiv.className = 'server';
-                
+
                 const serverIcon = document.createElement('img');
                 serverIcon.src = server.icon_url;
                 serverIcon.alt = `${server.name} icon`;
@@ -107,14 +111,12 @@
                 });
 
                 serverDiv.addEventListener('mouseenter', () => {
-                    gsap.to(serverDiv, { scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.2)', duration: 0.3 });
-                    gsap.to(serverIcon, { rotation: 360, duration: 0.5 });
+                    gsap.to(serverDiv, { scale: 1.1, boxShadow: '0 10px 20px rgba(0,0,0,0.2)', duration: 0.2 });
                     gsap.to(serverName, { color: '#7289DA', duration: 0.3 });
                 });
 
                 serverDiv.addEventListener('mouseleave', () => {
-                    gsap.to(serverDiv, { scale: 1, boxShadow: '0 4px 6px rgba(0,0,0,0.1)', duration: 0.3 });
-                    gsap.to(serverIcon, { rotation: 0, duration: 0.5 });
+                    gsap.to(serverDiv, { scale: 1, boxShadow: '0 4px 6px rgba(0,0,0,0.1)', duration: 0.2 });
                     gsap.to(serverName, { color: '#2C2F33', duration: 0.3 });
                 });
             });
@@ -122,32 +124,32 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             gsap.from('body', { opacity: 0, duration: 1, ease: 'power2.out' });
-            gsap.from('.logo', { 
-                opacity: 0, 
-                scale: 0.5, 
-                duration: 1, 
+            gsap.from('.logo', {
+                opacity: 0,
+                scale: 0.5,
+                duration: 1,
                 ease: 'elastic.out(1, 0.5)',
                 delay: 0.2
             });
-            gsap.from('h1', { 
-                opacity: 0, 
-                y: -50, 
-                duration: 0.8, 
+            gsap.from('h1', {
+                opacity: 0,
+                y: -50,
+                duration: 0.8,
                 ease: 'back.out(1.7)',
                 delay: 0.5
             });
-            gsap.from('p', { 
-                opacity: 0, 
-                y: 50, 
-                duration: 0.8, 
+            gsap.from('p', {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
                 ease: 'back.out(1.7)',
                 delay: 0.7
             });
             const installBtn = document.querySelector('.install-btn');
-            gsap.from(installBtn, { 
-                opacity: 0, 
-                scale: 0.8, 
-                duration: 0.8, 
+            gsap.from(installBtn, {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.8,
                 ease: 'elastic.out(1, 0.5)',
                 delay: 0.9
             });
@@ -176,7 +178,7 @@
             fetchServerData();
         });
     </script>
-    
+
     <style>
         body {
             background-color: #f7f7f7;
@@ -187,18 +189,22 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
+
         .container {
             text-align: center;
             padding: 20px;
             max-width: 1200px;
             width: 100%;
         }
+
         .trusted-users {
             font-size: 18px;
             margin-bottom: 20px;
             color: #7289DA;
         }
+
         .logo {
             background-color: #696969;
             border-radius: 50%;
@@ -209,41 +215,55 @@
             align-items: center;
             margin: 0 auto 15px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         h1 {
             font-size: 48px;
             margin: 0 0 10px;
             font-weight: 600;
         }
+
         p {
-            font-size: 20px;
+            font-size: 25px;
             margin: 0 0 20px;
+            
         }
+            
+        e {
+        	font-size: 20px;
+            margin: 0 0 30px
+            
+        }
+
         .install-btn {
-            background-color: #7289DA;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            box-shadow: 0 4px 6px rgba(114,137,218,0.3);
+          background-color: #7289DA;
+          color: white;
+          padding: 12px 30px;
+          border-radius: 30px;
+          font-size: 18px;
+          cursor: pointer;
+          transition: all 0.3s
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-block;
+          border: none;
+          box-shadow: 0 4px 6px rgba(114, 137, 218, 0.3);
         }
+
         .install-btn:hover {
-            background-color: #5b6eae;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(114,137,218,0.4);
+          background-color: #5b6eae;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 8px rgba(114, 137, 218, 0.4);
+          
         }
+
         .copyright {
             position: absolute;
             bottom: 10px;
@@ -253,15 +273,19 @@
             font-size: 12px;
             opacity: 0.7;
         }
-        .servers-section, .featured-commands {
+
+        .servers-section,
+        .featured-commands {
             margin-top: 40px;
         }
+
         .server-list {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
+
         .server {
             background-color: white;
             border-radius: 10px;
@@ -269,27 +293,32 @@
             display: flex;
             align-items: center;
             width: 250px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
+
         .server-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 15px;
         }
+
         .server-info {
             text-align: left;
         }
+
         .server-info h3 {
             margin: 0;
             font-size: 18px;
         }
+
         .server-info p {
             margin: 5px 0 0;
             font-size: 14px;
             opacity: 0.7;
         }
+
         .command-list {
             display: flex;
             justify-content: center;
@@ -297,63 +326,71 @@
             flex-wrap: wrap;
             margin-top: 20px;
         }
+
         .command-box {
             background-color: white;
             border-radius: 10px;
             padding: 20px;
             width: 200px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
+
         .command-box:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
+
         .command-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
-            transition: all 0.3s ease;
         }
-        .command-box:hover .command-icon {
-            transform: rotate(360deg);
-        }
+
         .command-box h3 {
             margin: 10px 0;
             font-size: 18px;
             color: #2C2F33;
             transition: color 0.3s ease;
         }
+
         .command-box:hover h3 {
             color: #7289DA;
         }
+
         .command-box p {
             font-size: 14px;
             color: #4F5660;
             margin: 0;
         }
+
+        .footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 10px 0;
+        }
     </style>
     <script type="application/ld+json">
-       {
-         "@context": "https://schema.org",
-         "@type": "SoftwareApplication",
-         "name": "Vulpes Discord Bot",
-         "operatingSystem": "Discord",
-         "applicationCategory": "ChatApplication",
-         "offers": {
-           "@type": "Offer",
-           "price": "0",
-           "priceCurrency": "USD"
-         },
-         "description": "Enhance your Discord experience with Powerful-Commands (WIDE)",
-         "softwareVersion": "v1.5.7.15",
-         "fileSize": "5MB",
-         "installUrl": "https://anoxle.github.io/vulpes/install",
-         "author": {
-           "@type": "Organization",
-           "name": "anoxle.git"
-         }
-       }
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Vulpes Discord Bot",
+            "operatingSystem": "Discord",
+            "applicationCategory": "ChatApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "description": "Enhance your Discord experience with Powerful-Commands (WIDE)",
+            "softwareVersion": "v1.5.7.15",
+            "fileSize": "5MB",
+            "installUrl": "https://anoxle.github.io/vulpes/install",
+            "author": {
+                "@type": "Organization",
+                "name": "anoxle.git"
+            }
+        }
     </script>
 </body>
 </html>
