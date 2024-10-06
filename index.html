@@ -1,396 +1,314 @@
-<!DOCTYPE html>
 <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vulpes - Better Discord Commands.">
+  <meta name="keywords" content="Vulpes, Discord, Commands, Better Discord Commands, Discord Bot">
+  <meta name="author" content="anoxle.git">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vulpes Discord Bot">
+  <meta property="og:description" content="Enhance your Discord experience with Better Commands!">
+  <meta property="og:url" content="https://anoxle.github.io/vulpes/">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:image" content="https://anoxle.github.io/vulpes/assets/vulpes.png">
+  <meta property="og:image:alt" content="Vulpes logo">
+  <title>Vulpes - Better Discord Commands [Official Page]</title>
+  <link rel="icon" href="https://anoxle.github.io/vulpes/favicons/favicon.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+   @keyframes goldAnimation {
+    0% {
+     color: #fbbf24;
+    }
+    50% {
+     color: #f59e0b;
+    }
+    100% {
+     color: #fbbf24;
+    }
+   }
+   .animate-gold {
+    animation: goldAnimation 2s infinite;
+   }
+   @keyframes fadeInScale {
+    0% {
+     opacity: 0;
+     transform: scale(0.8) translateY(20px);
+    }
+    100% {
+     opacity: 1;
+     transform: scale(1) translateY(0);
+    }
+   }
+   .fade-in-scale {
+    animation: fadeInScale 1s ease-out forwards;
+   }
+   .navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInScale 1s ease-out forwards;
+    z-index: 10;
+   }
+   .navbar:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+   }
+   @media (max-width: 768px) {
+    .navbar .space-x-4 {
+     display: none;
+    }
+    .navbar .text-2xl {
+     display: block;
+     text-align: center;
+     width: 100%;
+    }
+    .navbar .text-2xl::after {
+     content: "Navbar unavailable";
+     display: block;
+     font-size: 1rem;
+     color: red;
+    }
+   }
+   .box {
+    display: inline-block;
+    min-width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: boxAnimation 5s infinite;
+   }
+   .box:hover {
+    transform: scale(1.05);
+   }
+   .box img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+   }
+   .glow-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px white;
+    animation: glow 2s linear infinite;
+   }
+   @keyframes glow {
+    0% {
+     box-shadow: 0 0 10px 2px white;
+    }
+    50% {
+     box-shadow: 0 0 20px 4px white;
+    }
+    100% {
+     box-shadow: 0 0 10px 2px white;
+    }
+   }
+   @keyframes boxAnimation {
+    0%, 100% {
+     transform: translateY(0);
+    }
+    50% {
+     transform: translateY(-10px);
+    }
+   }
+   .plan-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+   }
+   .plan-box:hover {
+    transform: scale(1.05);
+   }
+   .plan-box p {
+    margin: 10px 0;
+   }
+   .plans-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+   @media (max-width: 768px) {
+    .plans-container {
+     flex-direction: column;
+    }
+   }
+   .blurred-content {
+    filter: blur(10px);
+    opacity: 0.2;
+   }
+   ::-webkit-scrollbar {
+    width: 12px;
+   }
+   ::-webkit-scrollbar-track {
+    background: #b0b0c0;
+   }
+   ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+   }
+   ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+   }
+  </style>
+<script>
+    function openPopup() {
+        window.open('https://anoxle.github.io/vulpes/installcd', 'popup', 'width=500,height=700');
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vulpes - Better Discord Commands [Official Page]</title>
-    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="icon" type="image/x-icon" />
-    <link href="https://anoxle.github.io/vulpes/favicons/favicon.svg" rel="shortcut icon" type="image/x-icon" />
-    <meta name="description" content="Vulpes gives you better Discord commands!">
-    <meta name="keywords" content="discord, vulpes, bot, enhancement, commands, community, free bot, easy to use, Vulpes Discord bot, install Vulpes bot, custom Discord commands, official vulpes bot, enhanced Discord commands, user-installable Discord bot, Discord bot commands, Discord automation tools, Vulpes bot features, how to install Vulpes bot, improve Discord server, Discord server commands, Discord Vulpes installation, best Discord bots, Discord bot for commands, Discord command bot, add commands to Discord, Discord bot customization, Discord user commands bot, manage Discord server bot, Vulpes command guide, automate Discord tasks, Discord bot setup Vulpes, easy install Discord bot, Vulpes bot tutorial, Discord bot command list, Discord productivity bot, Discord enhancement bot, Vulpes bot commands, Vulpes for Discord">
-    <meta name="author" content="anoxle.git">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Vulpes Discord Bot">
-    <meta property="og:description" content="Enhance your Discord experience with Better Commands!">
-    <meta property="og:url" content="https://anoxle.github.io/vulpes/">
-    <meta name="theme-color" content="#FFFFFF">
-    <meta property="og:image" content="https://anoxle.github.io/vulpes/assets/300vulpes.png">
-    <meta property="og:image:alt" content="Vulpes logo/icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://anoxle.github.io/vulpes/assets/300vulpes.png">
-</head>
+    window.onload = function() {
+        document.querySelectorAll('.fade-in-scale').forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+            element.classList.add('fade-in-scale');
+        });
+        document.querySelector('.navbar').style.animationDelay = '0s';
+        document.querySelectorAll('.box').forEach((element, index) => {
+            element.style.animationDelay = `${(index + 1) * 0.2}s`;
+            element.style.opacity = '1';
+        });
+        updateServerInfo();
+        setInterval(updateServerInfo, 5000); 
+    }
 
-<body>
-    <div class="container">
-        <div class="trusted-users">
-            <p>Trusted by over 100 users!</p>
+    function truncateText(text, maxLength) {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        }
+        return text;
+    }
+
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    async function updateServerInfo() {
+        const response = await fetch('https://gist.githubusercontent.com/anoxle/2094ae17e1e4e3f046a0930618539bac/raw/');
+        const data = await response.json();
+        data.forEach((server, index) => {
+            document.getElementById(`server${index + 1}-name`).innerText = truncateText(server.name, 29);
+            document.getElementById(`server${index + 1}-members`).innerText = `Members: ${formatNumber(server.member_count)}`;
+            document.getElementById(`server${index + 1}-icon`).src = server.icon_url;
+        });
+    }
+</script>
+ </head>
+ <body class="bg-[#d4d4e4] text-black font-roboto flex flex-col items-center min-h-screen pt-10">
+  <nav class="navbar w-full py-4 px-8 fixed top-0 flex justify-between items-center">
+   <div class="text-2xl font-bold">Vulpes</div>
+   <div class="space-x-4">
+    <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/">Home</a>
+    <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/invite" target="_blank">Invite</a>
+    <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/support" target="_blank">Support</a>
+    <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/xvar/terms">Terms</a>
+    <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/privacy">Privacy</a>
+    <button class="bg-transparent border-2 border-black text-black font-bold py-1 px-4 rounded-full text-lg hover:bg-black hover:text-[#d4d4e4] transition duration-300" onclick="openPopup()">Install</button>
+   </div>
+  </nav>
+  <div class="blurred-content w-full h-full absolute top-0 left-0"></div>
+  <div class="text-center space-y-4 mt-20">
+   <p class="text-2xl font-bold italic fade-in-scale">
+    Trusted by over
+    <span class="font-bold animate-gold">
+     144
+    </span>
+    users!
+   </p>
+   <div class="fade-in-scale">
+    <img alt="Vulpes logo" class="mx-auto rounded-full border-2 border-[#26254c]" height="120" src="https://anoxle.github.io/vulpes/assets/vulpes.webp" width="120">
+   </div>
+   <h1 class="text-5xl font-bold fade-in-scale">
+    Vulpes
+   </h1>
+   <p class="text-2xl font-bold italic mt-1 fade-in-scale">
+    • Better Discord Commands •
+   </p>
+   <button class="bg-transparent border-2 border-black text-black font-bold py-2 px-8 rounded-full text-2xl hover:bg-black hover:text-[#d4d4e4] transition duration-300 fade-in-scale" onclick="openPopup()">
+    Install
+   </button>
+   <p class="text-2xl font-bold mt-4 fade-in-scale">Vulpes is in</p>
+    <div class="fade-in-scale flex flex-wrap justify-center">
+        <div class="box">
+            <div class="glow-line"></div>
+            <img id="server1-icon" src="" alt="Server 1">
+            <div class="box-content">
+                <p id="server1-name"></p>
+                <p id="server1-members"></p>
+            </div>
         </div>
-        <div class="logo">
-            <img src="https://anoxle.github.io/vulpes/assets/vulpes.webp?size=120" alt="Vulpes logo">
+        <div class="box">
+            <div class="glow-line"></div>
+            <img id="server2-icon" src="" alt="Server 2">
+            <div class="box-content">
+                <p id="server2-name"></p>
+                <p id="server2-members"></p>
+            </div>
         </div>
-        <h1>Vulpes</h1>
-        <p>• Better Discord-Wide Commands •</p>
-        <a href="#" class="install-btn" onclick="openInstallPopup()">Install</a>
-
-        <div class="servers-section">
-            <h2>Vulpes is in</h2>
-            <div class="server-list" id="server-list"></div>
-        </div>
-
-        <div class="featured-commands">
-            <h2>Featured Commands</h2>
-            <div class="command-list">
-                <div class="command-box">
-                    <img src="https://anoxle.github.io/vulpes/assets/shazam.png" alt="Shazam icon" class="command-icon">
-                    <h3>Shazam</h3>
-                    <p>Easy Music Discovery, Charts.</p>
-                </div>
-                <div class="command-box">
-                    <img src="https://anoxle.github.io/vulpes/assets/install.png" alt="Install icon" class="command-icon">
-                    <h3>Install</h3>
-                    <p>Install Vulpes to your account</p>
-                </div>
-                <div class="command-box">
-                    <img src="https://anoxle.github.io/vulpes/assets/18plus.png" alt="18+ icon" class="command-icon">
-                    <h3>r34</h3>
-                    <p>Get r34 content [Video/Images]</p>
-                </div>
+        <div class="box">
+            <div class="glow-line"></div>
+            <img id="server3-icon" src="" alt="Server 3">
+            <div class="box-content">
+                <p id="server3-name"></p>
+                <p id="server3-members"></p>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        <e style="color: grey; text-align: center;">By using Vulpes you agree to the <a href="https://anoxle.github.io/xvar/terms" style="text-decoration: underline; color: grey;">Terms</a> & <a href="https://anoxle.github.io/vulpes/privacy" style="text-decoration: underline; color: grey;">Privacy</a></e>
+   <p class="text-3xl font-bold mt-4 fade-in-scale">Plans</p>
+   <p class="text-xl font-light mt-1 fade-in-scale">⌈ Improve the Improved ⌉</p>
+   <div class="plans-container fade-in-scale">
+    <div class="plan-box">
+     <h2 class="text-2xl font-bold">Basic</h2>
+     <p><i class="fas fa-times"></i> Server-Commands Pack</p>
+     <p><i class="fas fa-times"></i> Custom Server-Commands</p>
+     <p><i class="fas fa-times"></i> Better & Faster APIs</p>
+     <p><i class="fas fa-times"></i> AutoMod Commands Pack</p>
+     <p><i class="fas fa-times"></i> Invite-Tracker Commands Pack</p>
+     <p><i class="fas fa-times"></i> Real-Time Advanced Protection</p>
+     <p><i class="fas fa-times"></i> Custom Music Bot (Listenpes)</p>
+     <p><i class="fas fa-check"></i> 24/7 Runtime</p>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script>
-        function openInstallPopup() {
-            window.open('https://discord.com/oauth2/authorize?client_id=1207724790635561001', 'Install Vulpes', 'width=600,height=800');
-        }
-
-        async function fetchServerData() {
-            const response = await fetch('https://gist.githubusercontent.com/anoxle/2094ae17e1e4e3f046a0930618539bac/raw/');
-            const servers = await response.json();
-            const serverList = document.getElementById('server-list');
-            serverList.innerHTML = '';
-
-            servers.forEach((server, index) => {
-                const serverDiv = document.createElement('div');
-                serverDiv.className = 'server';
-
-                const serverIcon = document.createElement('img');
-                serverIcon.src = server.icon_url;
-                serverIcon.alt = `${server.name} icon`;
-                serverIcon.className = 'server-icon';
-
-                const serverInfo = document.createElement('div');
-                serverInfo.className = 'server-info';
-
-                const serverName = document.createElement('h3');
-                serverName.textContent = server.name;
-
-                const serverMemberCount = document.createElement('p');
-                serverMemberCount.textContent = `${server.member_count.toLocaleString()} members`;
-
-                serverInfo.appendChild(serverName);
-                serverInfo.appendChild(serverMemberCount);
-                serverDiv.appendChild(serverIcon);
-                serverDiv.appendChild(serverInfo);
-                serverList.appendChild(serverDiv);
-
-                gsap.set(serverDiv, { opacity: 0, y: 50 });
-                gsap.to(serverDiv, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    ease: "power2.out"
-                });
-
-                serverDiv.addEventListener('mouseenter', () => {
-                    gsap.to(serverDiv, { scale: 1.1, boxShadow: '0 10px 20px rgba(0,0,0,0.2)', duration: 0.2 });
-                    gsap.to(serverName, { color: '#7289DA', duration: 0.3 });
-                });
-
-                serverDiv.addEventListener('mouseleave', () => {
-                    gsap.to(serverDiv, { scale: 1, boxShadow: '0 4px 6px rgba(0,0,0,0.1)', duration: 0.2 });
-                    gsap.to(serverName, { color: '#2C2F33', duration: 0.3 });
-                });
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            gsap.from('body', { opacity: 0, duration: 1, ease: 'power2.out' });
-            gsap.from('.logo', {
-                opacity: 0,
-                scale: 0.5,
-                duration: 1,
-                ease: 'elastic.out(1, 0.5)',
-                delay: 0.2
-            });
-            gsap.from('h1', {
-                opacity: 0,
-                y: -50,
-                duration: 0.8,
-                ease: 'back.out(1.7)',
-                delay: 0.5
-            });
-            gsap.from('p', {
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                ease: 'back.out(1.7)',
-                delay: 0.7
-            });
-            const installBtn = document.querySelector('.install-btn');
-            gsap.from(installBtn, {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.8,
-                ease: 'elastic.out(1, 0.5)',
-                delay: 0.9
-            });
-            installBtn.addEventListener('mouseenter', () => {
-                gsap.to(installBtn, { scale: 1.1, duration: 0.3 });
-            });
-            installBtn.addEventListener('mouseleave', () => {
-                gsap.to(installBtn, { scale: 1, duration: 0.3 });
-            });
-            gsap.from('.servers-section, .featured-commands', {
-                opacity: 0,
-                y: 100,
-                duration: 1,
-                ease: 'power3.out',
-                delay: 1.1,
-                stagger: 0.2
-            });
-            gsap.from('.command-box', {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.8,
-                ease: 'back.out(1.7)',
-                delay: 1.3,
-                stagger: 0.1
-            });
-            fetchServerData();
-        });
-    </script>
-
-    <style>
-        body {
-            background-color: #f7f7f7;
-            color: #2C2F33;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .trusted-users {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #7289DA;
-        }
-
-        .logo {
-            background-color: #696969;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin: 0 0 10px;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 25px;
-            margin: 0 0 20px;
-            
-        }
-            
-        e {
-        	font-size: 20px;
-            margin: 0 0 30px
-            
-        }
-
-        .install-btn {
-          background-color: #7289DA;
-          color: white;
-          padding: 12px 30px;
-          border-radius: 30px;
-          font-size: 18px;
-          cursor: pointer;
-          transition: all 0.3s
-          font-weight: 600;
-          text-decoration: none;
-          display: inline-block;
-          border: none;
-          box-shadow: 0 4px 6px rgba(114, 137, 218, 0.3);
-        }
-
-        .install-btn:hover {
-          background-color: #5b6eae;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 8px rgba(114, 137, 218, 0.4);
-          
-        }
-
-        .copyright {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        .servers-section,
-        .featured-commands {
-            margin-top: 40px;
-        }
-
-        .server-list {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .server {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            width: 250px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .server-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .server-info {
-            text-align: left;
-        }
-
-        .server-info h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .server-info p {
-            margin: 5px 0 0;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        .command-list {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .command-box {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .command-box:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .command-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-        }
-
-        .command-box h3 {
-            margin: 10px 0;
-            font-size: 18px;
-            color: #2C2F33;
-            transition: color 0.3s ease;
-        }
-
-        .command-box:hover h3 {
-            color: #7289DA;
-        }
-
-        .command-box p {
-            font-size: 14px;
-            color: #4F5660;
-            margin: 0;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: auto;
-            padding: 10px 0;
-        }
-    </style>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Vulpes Discord Bot",
-            "operatingSystem": "Discord",
-            "applicationCategory": "ChatApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
-            "description": "Enhance your Discord experience with Powerful-Commands (WIDE)",
-            "softwareVersion": "v1.5.7.15",
-            "fileSize": "5MB",
-            "installUrl": "https://anoxle.github.io/vulpes/install",
-            "author": {
-                "@type": "Organization",
-                "name": "anoxle.git"
-            }
-        }
-    </script>
-</body>
+    <div class="plan-box">
+     <h2 class="text-2xl font-bold">VulpesPlus</h2>
+     <p><i class="fas fa-check"></i> Server-Commands Pack</p>
+     <p><i class="fas fa-check"></i> Custom Server-Commands</p>
+     <p><i class="fas fa-check"></i> Better & Faster APIs</p>
+     <p><i class="fas fa-check"></i> AutoMod Commands Pack</p>
+     <p><i class="fas fa-check"></i> Invite-Tracker Commands Pack</p>
+     <p><i class="fas fa-check"></i> Real-Time Advanced Protection</p>
+     <p><i class="fas fa-check"></i> Custom Music Bot (Listenpes)</p>
+     <p><i class="fas fa-check"></i> 24/7 Runtime</p>
+    </div>
+   </div>
+   <p class="text-sm text-gray-600 mt-4 fade-in-scale">Contact us for purchase anoxlemain@gmail.com</p>
+  </div>
+ </body>
 </html>
