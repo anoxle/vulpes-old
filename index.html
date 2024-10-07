@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="UTF-8">
@@ -18,16 +19,13 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+   html {
+    scroll-behavior: smooth;
+   }
    @keyframes goldAnimation {
-    0% {
-     color: #fbbf24;
-    }
-    50% {
-     color: #f59e0b;
-    }
-    100% {
-     color: #fbbf24;
-    }
+    0% { color: #fbbf24; }
+    50% { color: #f59e0b; }
+    100% { color: #fbbf24; }
    }
    .animate-gold {
     animation: goldAnimation 2s infinite;
@@ -43,24 +41,21 @@
     }
    }
    .fade-in-scale {
-    animation: fadeInScale 1s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
    }
    .navbar {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInScale 1s ease-out forwards;
+    transition: background-color 0.3s ease, transform 0.5s ease;
     z-index: 10;
+    transform: translateY(-100%);
    }
    .navbar:hover {
     background-color: rgba(255, 255, 255, 0.3);
    }
    @media (max-width: 768px) {
-    .navbar .space-x-4 {
-     display: none;
-    }
+    .navbar .space-x-4 { display: none; }
     .navbar .text-2xl {
      display: block;
      text-align: center;
@@ -113,23 +108,13 @@
     animation: glow 2s linear infinite;
    }
    @keyframes glow {
-    0% {
-     box-shadow: 0 0 10px 2px white;
-    }
-    50% {
-     box-shadow: 0 0 20px 4px white;
-    }
-    100% {
-     box-shadow: 0 0 10px 2px white;
-    }
+    0% { box-shadow: 0 0 10px 2px white; }
+    50% { box-shadow: 0 0 20px 4px white; }
+    100% { box-shadow: 0 0 10px 2px white; }
    }
    @keyframes boxAnimation {
-    0%, 100% {
-     transform: translateY(0);
-    }
-    50% {
-     transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
    }
    .plan-box {
     display: flex;
@@ -181,23 +166,32 @@
     background: rgba(255, 255, 255, 0.5);
    }
   </style>
-<script>
+  <script>
     function openPopup() {
         window.open('https://anoxle.github.io/vulpes/installcd', 'popup', 'width=500,height=700');
     }
 
     window.onload = function() {
-        document.querySelectorAll('.fade-in-scale').forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.2}s`;
-            element.classList.add('fade-in-scale');
-        });
-        document.querySelector('.navbar').style.animationDelay = '0s';
-        document.querySelectorAll('.box').forEach((element, index) => {
-            element.style.animationDelay = `${(index + 1) * 0.2}s`;
-            element.style.opacity = '1';
-        });
+        setTimeout(() => {
+            document.querySelector('.navbar').style.transform = 'translateY(0)';
+        }, 500);
+
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-scale').forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.animation = `fadeInScale 1s ease-out forwards`;
+                }, index * 200);
+            });
+
+            document.querySelectorAll('.box').forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, (index + 1) * 200);
+            });
+        }, 1000);
+
         updateServerInfo();
-        setInterval(updateServerInfo, 5000); 
+        setInterval(updateServerInfo, 5000);
     }
 
     function truncateText(text, maxLength) {
@@ -220,7 +214,7 @@
             document.getElementById(`server${index + 1}-icon`).src = server.icon_url;
         });
     }
-</script>
+  </script>
  </head>
  <body class="bg-[#d4d4e4] text-black font-roboto flex flex-col items-center min-h-screen pt-10">
   <nav class="navbar w-full py-4 px-8 fixed top-0 flex justify-between items-center">
