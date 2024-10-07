@@ -4,85 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulpes - Privacy Policy</title>
-    <link rel="icon" href="https://anoxle.github.io/vulpes/favicons/favicon.svg" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://anoxle.github.io/vulpes/favicons/favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #7289DA;
-            --text-color: #2C2F33;
-            --bg-color: #f7f7f7;
-            --highlight-color: #7289DA;
+        html {
+            scroll-behavior: smooth;
         }
-        
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            background-color: #d4d4e4;
+            color: #26254c;
         }
-        
-        .container, .top-note {
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease, transform 0.5s ease;
+            z-index: 10;
+            transform: translateY(-100%);
+        }
+        .navbar:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        @media (max-width: 768px) {
+            .navbar .space-x-4 { display: none; }
+            .navbar .text-2xl {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+            .navbar .text-2xl::after {
+                content: "Navbar unavailable";
+                display: block;
+                font-size: 1rem;
+                color: red;
+            }
+        }
+        .container {
             max-width: 800px;
-            margin: 0 auto 20px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
         }
-        
-        .top-note {
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        
         h1, h2 {
-            color: var(--primary-color);
-            margin-top: 30px;
-            text-align: left;
+            color: #26254c;
         }
-        
-        p, ul {
-            font-size: 16px;
-            margin-top: 15px;
-            text-align: left;
-        }
-        
         .highlight {
-            color: var(--highlight-color);
+            color: #26254c;
             font-weight: bold;
         }
-        
         a {
-            color: var(--highlight-color);
+            color: #26254c;
             text-decoration: none;
             transition: opacity 0.3s;
-            cursor: pointer;
         }
-        
         a:hover {
             opacity: 0.8;
             text-decoration: underline;
         }
-        
-        .note {
-            font-style: italic;
-            color: #888;
-            text-align: left;
-            margin-top: 20px;
+        ::-webkit-scrollbar {
+            width: 12px;
         }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
+        ::-webkit-scrollbar-track {
+            background: #b0b0c0;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
         }
-
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
         .modal {
             display: none;
             position: fixed;
@@ -96,7 +92,6 @@
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
-
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto;
@@ -112,16 +107,13 @@
             opacity: 0;
             transition: all 0.3s ease-in-out;
         }
-
         .modal.show {
             opacity: 1;
         }
-
         .modal.show .modal-content {
             transform: scale(1);
             opacity: 1;
         }
-
         .close {
             color: #aaa;
             float: right;
@@ -129,14 +121,12 @@
             font-weight: bold;
             transition: color 0.2s;
         }
-
         .close:hover,
         .close:focus {
             color: #000;
             text-decoration: none;
             cursor: pointer;
         }
-
         .powered-by {
             position: absolute;
             bottom: 10px;
@@ -144,94 +134,106 @@
             font-size: 12px;
             color: #888;
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container, .top-note {
-                padding: 15px;
-            }
-            .modal-content {
-                width: 95%;
-                height: 90%;
-                margin: 2.5% auto;
-            }
+        .clickable-link {
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .clickable-link:hover {
+            opacity: 0.7;
+        }
+        .clickable-link i {
+            margin-left: 5px;
+            font-size: 0.8em;
         }
     </style>
+    <script>
+        function openPopup() {
+            window.open('https://anoxle.github.io/vulpes/installcd', 'popup', 'width=500,height=700');
+        }
+        window.onload = function() {
+            setTimeout(() => {
+                document.querySelector('.navbar').style.transform = 'translateY(0)';
+            }, 500);
+        }
+        function openShapesPrivacy() {
+            var modal = document.getElementById("shapesPrivacyModal");
+            modal.style.display = "block";
+            setTimeout(function() {
+                modal.classList.add("show");
+            }, 10);
+        }
+        function closeShapesPrivacy() {
+            var modal = document.getElementById("shapesPrivacyModal");
+            modal.classList.remove("show");
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 300);
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById("shapesPrivacyModal");
+            if (event.target == modal) {
+                closeShapesPrivacy();
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="top-note fade-in">
-        <p>If you use the AI built into Vulpes you also agree to <a id="shapesPrivacyLink">Shapes.inc Privacy</a></p>
-    </div>
+<body class="flex flex-col items-center min-h-screen pt-10">
+    <nav class="navbar w-full py-4 px-8 fixed top-0 flex justify-between items-center">
+        <div class="text-2xl font-bold">Vulpes</div>
+        <div class="space-x-4">
+            <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/">Home</a>
+            <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/invite" target="_blank">Invite</a>
+            <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/support" target="_blank">Support</a>
+            <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/xvar/terms">Terms</a>
+            <a class="text-black hover:text-gray-700" href="https://anoxle.github.io/vulpes/privacy">Privacy</a>
+            <button class="bg-transparent border-2 border-black text-black font-bold py-1 px-4 rounded-full text-lg hover:bg-black hover:text-[#d4d4e4] transition duration-300" onclick="openPopup()">Install</button>
+        </div>
+    </nav>
 
-    <div class="container fade-in">
-        <h1>Vulpes - Privacy Policy</h1>
+    <div class="container mt-20">
+        <p class="mb-4 text-center">If you use the AI built into Vulpes you also agree to 
+            <a href="#" onclick="openShapesPrivacy()" class="clickable-link">
+                Shapes.inc Privacy
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </p>
 
-        <p>This policy outlines how Vulpes collects, uses, and protects your personal information. We are committed to ensuring your privacy and maintaining transparency in our data practices.</p>
+        <h1 class="text-4xl font-bold mb-6">Vulpes - Privacy Policy</h1>
 
-        <h2>1. Information We Collect and Use</h2>
-        <p>To provide and improve our services, we collect the following information:</p>
-        <ul>
+        <p class="mb-4">This policy outlines how Vulpes collects, uses, and protects your personal information. We are committed to ensuring your privacy and maintaining transparency in our data practices.</p>
+
+        <h2 class="text-2xl font-bold mt-6 mb-4">1. Information We Collect and Use</h2>
+        <p class="mb-2">To provide and improve our services, we collect the following information:</p>
+        <ul class="list-disc pl-6 mb-4">
             <li><span class="highlight">User IDs:</span> Unique identifiers for each user</li>
             <li><span class="highlight">Server IDs:</span> Identifiers for Discord servers where Vulpes is used</li>
             <li><span class="highlight">Usernames:</span> Your Discord username</li>
         </ul>
         <p>This information is essential for identifying users, managing databases, and providing personalized services.</p>
 
-        <h2>2. Data Sharing and Disclosure</h2>
-        <p>We prioritize your privacy and do not share or disclose any personal information collected through Vulpes, except as outlined in this policy or with your explicit consent. However, we may share <span class="highlight">aggregate and anonymized data</span> for <span class="highlight">analytical purposes or to improve our services</span>.</p>
+        <h2 class="text-2xl font-bold mt-6 mb-4">2. Data Sharing and Disclosure</h2>
+        <p class="mb-4">We prioritize your privacy and do not share or disclose any personal information collected through Vulpes, except as outlined in this policy or with your explicit consent. However, we may share <span class="highlight">aggregate and anonymized data</span> for <span class="highlight">analytical purposes or to improve our services</span>.</p>
 
-        <h2>3. Updates to the Privacy Policy</h2>
-        <p>We may update this privacy policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any revisions will be posted on our support server, and we encourage you to review this policy periodically.</p>
+        <h2 class="text-2xl font-bold mt-6 mb-4">3. Updates to the Privacy Policy</h2>
+        <p class="mb-4">We may update this privacy policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any revisions will be posted on our support server, and we encourage you to review this policy periodically.</p>
 
-        <h2>4. Contact Information</h2>
-        <p>If you have any questions, concerns, or requests regarding this privacy policy or our data practices, please contact us through one of the following methods:</p>
-        <ul>
+        <h2 class="text-2xl font-bold mt-6 mb-4">4. Contact Information</h2>
+        <p class="mb-2">If you have any questions, concerns, or requests regarding this privacy policy or our data practices, please contact us through the following method:</p>
+        <ul class="list-disc pl-6 mb-4">
             <li>Email: <a href="mailto:anoxlemain@gmail.com" class="highlight">anoxlemain@gmail.com</a></li>
-            <li>SUPVo: <a href="https://supvo.net/company/anoxlegit/submit" class="highlight">https://supvo.net/company/anoxlegit/submit</a></li>
-            <li>ANSend: <a href="https://anoxle.github.io/ansend/users/anoxlegit/mail.html" class="highlight">https://anoxle.github.io/ansend/users/anoxlegit/mail.html</a></li>
         </ul>
-
-        <p class="note"><strong>Note:</strong> Only Email (Gmail) Works at this time!</p>
     </div>
 
     <div id="shapesPrivacyModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeShapesPrivacy()">&times;</span>
             <h2>Shapes.inc Privacy Policy</h2>
             <iframe src="https://wiki.shapes.inc/shape-essentials/guidelines-and-privacy/privacy-policy" width="100%" height="85%"></iframe>
             <div class="powered-by">Powered by iWebView</div>
         </div>
     </div>
-
-    <script>
-        var modal = document.getElementById("shapesPrivacyModal");
-        var link = document.getElementById("shapesPrivacyLink");
-        var span = document.getElementsByClassName("close")[0];
-
-        link.onclick = function() {
-            modal.style.display = "block";
-            setTimeout(function() {
-                modal.classList.add("show");
-            }, 10);
-        }
-
-        span.onclick = function() {
-            modal.classList.remove("show");
-            setTimeout(function() {
-                modal.style.display = "none";
-            }, 300);
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.classList.remove("show");
-                setTimeout(function() {
-                    modal.style.display = "none";
-                }, 300);
-            }
-        }
-    </script>
 </body>
 </html>
