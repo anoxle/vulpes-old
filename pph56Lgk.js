@@ -1,1 +1,59 @@
-function _0x2910(_0xeeffdd,_0x3cd37d){const _0x3263eb=_0x3263();return _0x2910=function(_0x2910c3,_0x482310){_0x2910c3=_0x2910c3-0x93;let _0x5298fd=_0x3263eb[_0x2910c3];return _0x5298fd;},_0x2910(_0xeeffdd,_0x3cd37d);}(function(_0x3ac7e4,_0x557b9f){const _0x53b1e7=_0x2910,_0x556309=_0x3ac7e4();while(!![]){try{const _0x1d7798=parseInt(_0x53b1e7(0xa3))/0x1*(-parseInt(_0x53b1e7(0xa7))/0x2)+-parseInt(_0x53b1e7(0x9d))/0x3+parseInt(_0x53b1e7(0xa8))/0x4*(-parseInt(_0x53b1e7(0x99))/0x5)+parseInt(_0x53b1e7(0x9c))/0x6+-parseInt(_0x53b1e7(0xaa))/0x7+parseInt(_0x53b1e7(0xa2))/0x8*(-parseInt(_0x53b1e7(0x9e))/0x9)+parseInt(_0x53b1e7(0x95))/0xa;if(_0x1d7798===_0x557b9f)break;else _0x556309['push'](_0x556309['shift']());}catch(_0x21b056){_0x556309['push'](_0x556309['shift']());}}}(_0x3263,0xd6850));function _0x3263(){const _0x18c70e=['3885872LpkZxC','681uUKTdI','redirect-box','style','click','346tNLdZs','4NHUFQR','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22redirect-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20You\x27re\x20currently\x20viewing\x20an\x20outdated\x20page\x20(Click\x20here\x20to\x20see\x20new\x20page)\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','5194840nhLjei','appendChild','body','open','22319800Ggpyou','text/css','_blank','insertAdjacentHTML','789265PRlAVn','createElement','type','5203008UAvpcV','2150868hturPb','9lPtnYa','redirectToNewSite','addEventListener','https://vulpesy.vercel.app/'];_0x3263=function(){return _0x18c70e;};return _0x3263();}function createRedirectBox(){const _0x8697e9=_0x2910,_0x20a633='\x0a\x20\x20\x20\x20\x20\x20\x20\x20#redirect-box\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20right:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#131314;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2015px\x2025px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20transform\x200.2s\x20ease,\x20box-shadow\x200.2s\x20ease;\x20/*\x20Reduced\x20transition\x20duration\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateX(20px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x201000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20fadeIn\x200.5s\x20ease-out\x20forwards;\x20/*\x20Adjusted\x20animation\x20duration\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20backdrop-filter:\x20blur(10px);\x20/*\x20Added\x20blur\x20effect\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20#redirect-box:hover\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20scale(1.05);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box-shadow:\x200\x204px\x2015px\x20rgba(0,\x200,\x200,\x200.3);\x20/*\x20Increased\x20glow\x20intensity\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20fadeIn\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateX(20px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateX(0);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20',_0x476e91=document[_0x8697e9(0x9a)](_0x8697e9(0xa5));_0x476e91[_0x8697e9(0x9b)]=_0x8697e9(0x96),_0x476e91[_0x8697e9(0xab)](document['createTextNode'](_0x20a633)),document['head'][_0x8697e9(0xab)](_0x476e91);const _0x19a624=_0x8697e9(0xa9);document[_0x8697e9(0x93)][_0x8697e9(0x98)]('afterbegin',_0x19a624),window[_0x8697e9(0x9f)]=function(){const _0x9ada88=_0x8697e9;window[_0x9ada88(0x94)](_0x9ada88(0xa1),_0x9ada88(0x97));};const _0x222c74=document['getElementById'](_0x8697e9(0xa4));_0x222c74[_0x8697e9(0xa0)](_0x8697e9(0xa6),redirectToNewSite);}createRedirectBox();
+function createRedirectBox() {
+    const redirectBoxStyles = `
+          #redirect-box {
+              position: fixed;
+              top: 10px;
+              right: 10px;
+              background-color: #131314;
+              color: white;
+              padding: 15px 25px;
+              border-radius: 10px;
+              text-align: center;
+              cursor: pointer;
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+              opacity: 0;
+              transform: translateX(20px);
+              z-index: 1000;
+              animation: fadeIn 0.5s ease-out forwards;
+              backdrop-filter: blur(10px);
+          }
+  
+          #redirect-box:hover {
+              transform: scale(1.05);
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+          }
+  
+          @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateX(20px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateX(0);
+              }
+          }
+      `;
+  
+    const styleElement = document.createElement('style');
+    styleElement.type = 'text/css';
+    styleElement.appendChild(document.createTextNode(redirectBoxStyles));
+    document.head.appendChild(styleElement);
+  
+    const redirectBoxHTML = `
+          <div id="redirect-box">
+              You're currently viewing an outdated page (View New Page)
+          </div>
+      `;
+  
+    document.body.insertAdjacentHTML('afterbegin', redirectBoxHTML);
+  
+    window.redirectToNewSite = function() {
+      window.open('https://vulpesy.vercel.app/', '_blank');
+    };
+  
+    const redirectBox = document.getElementById('redirect-box');
+    redirectBox.addEventListener('click', redirectToNewSite);
+  }
+  
+  createRedirectBox();
