@@ -1,4 +1,0 @@
-User-agent: *
-disallow: 
-
-Sitemap: https://anoxle.github.io/vulpes/sitemap.xml

@@ -1,1 +1,0 @@
-Successfully sent a GET request to anoxle.github.io/vulpes/api/v2/sendme.html
