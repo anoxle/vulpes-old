@@ -2,7 +2,7 @@
 Enhance Your Discord Experience
 
 ## About
-Vulpes is a Discord bot created to make your experience better. It's made with Python and the discord.py library. It has many features, including fun commands, mini-games, and more! The bot is easy to use and completely free, with no plans for paid options. Vulpes is online 98% of the time, only going offline for maintenance or updates. As of January 14, 2025, the bot offers over 100 commands. The team managing Vulpes is very active, making sure it gets regular updates and that any problems are fixed quickly.
+Vulpes is a Discord bot designed to improve your Discord experience. It was created using Python and discord.py. The bot comes with lots of fun & helpful commands and the bot is easy to use, totally free, no plans and the bot is online 98% of the time, only going offline for quick updates or fixes. As of January 14, 2025, it has over 100 different commands. The team behind Vulpes is always working on it, adding new things and fixing problems quickly. The best part? You can use its commands anywhere on Discord - DMs, groups or even on servers where Vulpes hasn't been added!
 
 ## Installation and Inviting
 Adding Vulpes to your account or server is really simple and here are the steps:
