@@ -9,8 +9,8 @@ Adding Vulpes to your account or server is really simple and here are the steps:
 - Simply go to [vulpes/install](https://vulpesy.vercel.app/install) to install it to your account or [vulpes/invite](https://vulpesy.vercel.app/invite) to invite it to your server!
 
 ## Terms of Service & Privacy Policy
-- [Terms](https://vulpesy.vercel.app/)
-- [Privacy Policy](https://vulpesy.vercel.app/)
+- [Terms](https://vulpesy.vercel.app/terms)
+- [Privacy Policy](https://vulpesy.vercel.app/privacy)
 
 ## Keep Your Server Entertained with AI
 Vulpes uses AI from [shapes.inc](https://shapes.inc) to provide features such as text generation & image generation, helping to keep your server active and engaged.
