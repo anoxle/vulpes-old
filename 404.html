@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL=https://vulpesy.vercel.app/">
 </head>
 <body>
-    <p>Redirecting to <a href="https://vulpesy.vercel.app/">https://vulpesy.vercel.app/</a> (NEW SITE)</p>
+    <div id="fallback" style="display:none;">
+        Didn't get redirected? <a href="https://anoxle.github.io/vulpes?ref=v1">Click here!</a>
+    </div>
+
+    <script>
+        window.location.replace("https://anoxle.github.io/handle/?s=MVFJTnEvcmVkaXJlY3QuanM=");
+        
+        setTimeout(() => {
+            document.getElementById("fallback").style.display = "block";
+        }, 100);
+    </script>
 </body>
 </html>
