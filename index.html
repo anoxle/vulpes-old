@@ -1,12 +1,3 @@
 <script>
-const pagepath = window.location.pathname;
-const querystring = window.location.search;
-const fragment = window.location.hash;
-
-let pathbit = pagepath.substring(pagepath.indexOf('/vulpes') + 7);
-pathbit = pathbit.replace(/\/$/, '');
-
-const goto = 'https://anoxle.github.io/hades94' + (pathbit ? pathbit : '') + querystring + fragment;
-
-window.location.replace(goto);
+window.location.replace("https://anoxle.github.io/vulpes");
 </script>
