@@ -1,4 +1,4 @@
->Note: This Discord bot has been discontinued. [Learn More](https://vulpesbot.vercel.app/), [New Bot](https://anoxle.github.io/hades94)
+>Note: This Discord bot has been discontinued. [New Bot](https://anoxle.github.io/vulpes)
 # Vulpes Discord Bot
 Enhance Your Discord Experience
 
